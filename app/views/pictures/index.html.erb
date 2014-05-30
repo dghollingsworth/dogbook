@@ -1,6 +1,11 @@
 <h1>Pictures</h1>
-<p><% @pictures.each do |picture| %>
-	<%= picture.description %><br/>
-	<%= picture.url %><br/>
-	<% end %>
-</p>
+<% @pictures.each do |picture| %>
+	<div class="picture">
+		<p>
+			<%= picture.description %><br/>
+			<%= link_to picture.url %><br/>
+			<%= link_to "Show", picture_path(picture.id) %>
+		</p>
+	</div>
+<% end %>
+

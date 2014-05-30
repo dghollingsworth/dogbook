@@ -18,6 +18,7 @@ class PicturesController < ApplicationController
   end
 
   def show
+  	@picture = Picture.find(params[:id])
   end
 
   def edit
@@ -28,7 +29,7 @@ class PicturesController < ApplicationController
   	@picture = Picture.find(params[:id])
 
   	if @picture.update_attributes(picture_params)
-  		redirect_to pictures_path
+  		redirect_to picture_path(@picture.id)
   	else
   		render :edit
   	end
