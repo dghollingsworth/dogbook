@@ -1,11 +1,10 @@
 <h1>Pictures</h1>
 <% @pictures.each do |picture| %>
-	<div class="picture">
-		<p>
+	<a href=<%= picture_path(picture.id) %> >
+		<div class="picture">
 			<%= picture.description %><br/>
 			<%= image_tag picture.url %><br/>
-			<%= link_to "Delete", picture_path(picture.id), confirm: "Delete?", method: :delete %>
-		</p>
-	</div>
+		</div>
+	</a>
 <% end %>
 

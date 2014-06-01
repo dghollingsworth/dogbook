@@ -1,3 +1,11 @@
-<%= form_for @pictures, @comments do |f| %>
+<%= form_for [@picture, @comment] do |f| %>
+
+	<div class="field">
+		<%= f.label :content %>
+		<%= f.text_field :content %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Enter" %>
+	</div>
 
 <% end %>
