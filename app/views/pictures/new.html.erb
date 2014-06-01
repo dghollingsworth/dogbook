@@ -1,2 +1,16 @@
-<h1>Pictures#new</h1>
-<p>Find me in app/views/pictures/new.html.erb</p>
+<h1>Add a Picture</h1>
+
+<%= form_for @picture do |f| %>
+<p>
+	<%= f.label :description %><br/>
+	<%= f.text_field :description %>
+</p>
+<p>
+	<%= f.label :url %><br/>
+	<%= f.text_field :url %>
+</p>
+<p>
+	<%= f.submit %>
+</p>
+
+<% end %>
