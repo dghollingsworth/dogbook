@@ -4,7 +4,7 @@
 		<p>
 			<%= picture.description %><br/>
 			<%= image_tag picture.url %><br/>
-			<%= link_to "Show", picture_path(picture.id) %>
+			<%= link_to "Delete", picture_path(picture.id), confirm: "Delete?", method: :delete %>
 		</p>
 	</div>
 <% end %>
