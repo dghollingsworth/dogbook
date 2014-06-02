@@ -21,7 +21,6 @@ class PicturesController < ApplicationController
   	get_picture
 
     @comment = @picture.comments.build
-
   end
 
   def edit
@@ -53,8 +52,4 @@ class PicturesController < ApplicationController
   	@picture = Picture.find(params[:id])
   end
 
-  
-  def display_date(d)
-    d.strftime("%Y %d %e")
-  end
 end
