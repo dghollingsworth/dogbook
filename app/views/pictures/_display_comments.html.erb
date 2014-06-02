@@ -1,0 +1,6 @@
+<!-- iterate through existing comments and display -->
+<% @picture.comments.each do |comment| %>
+	<div class="comments">
+		<%= comment.content %>  <%= comment.created_at.strftime("%Y, %b %e %H:%M") if !comment.created_at.nil? %>
+	</div><br/>
+<% end %>

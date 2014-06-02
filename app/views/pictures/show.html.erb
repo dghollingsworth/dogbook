@@ -2,5 +2,7 @@
 <p>
 	<%= image_tag @picture.url %><br/>
 	 <%= link_to "Delete", picture_path(@picture.id), confirm: "Are you sure?", method: :delete %>
-	 <%= render 'comments' %>
 </p>
+<h2>Comments</h2>
+<%= render 'new_comment' %>
+<%= render 'display_comments' %>

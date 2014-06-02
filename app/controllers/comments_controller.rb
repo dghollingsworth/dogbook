@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  end
 
   def destroy
   	@comment = Comment.find(comment_params) 
