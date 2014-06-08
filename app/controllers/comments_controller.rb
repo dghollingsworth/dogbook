@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 	before_action :load_picture
 
+	
   def show
   	@comment = Comment.find(params[:id])
   end
@@ -8,18 +9,22 @@ class CommentsController < ApplicationController
   def create
   	@comment = @picture.comments.build(comment_params)
 
-    if @comment.save
-      redirect_to picture_path(@picture.id), notice: 'Review created successfully'
-    else
-      render 'picture/show'
-    end
+		respond_to do |format|	  	
+	    if @comment.save
+	      format.html #show.html.erb
+	      format.json{ render :json=>@comment }
+	      format.js{}
+	    else
+	      format.html{ 'picture/show' }
+	    end
+	  end
   end
 
 
   def destroy
-  	@comment = Comment.find(comment_params) 
+  	@comment = Comment.find(params[:id]) 
   	@comment.destroy
-  	redirect_to picture_path()
+  	redirect_to picture_url(@comment.picture_id)
   end
 
   private

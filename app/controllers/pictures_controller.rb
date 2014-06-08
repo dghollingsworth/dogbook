@@ -10,11 +10,15 @@ class PicturesController < ApplicationController
   def create
   	@picture = Picture.new(picture_params)
 
-  	if @picture.save
-  		redirect_to pictures_path
-  	else
-  		render :new
-  	end
+    respond_to  do |format|
+    	if @picture.save
+    		format.html {redirect_to picture_path(@picture.id)}
+        format.js {}
+    	else
+    		format.html {render 'pictures/show'}
+        format.js {}
+    	end
+    end
   end
 
   def show
