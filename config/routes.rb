@@ -5,5 +5,4 @@ Dogbook::Application.routes.draw do
     resources :comments, only: [:show, :create, :destroy]
   end
 
-  
 end
